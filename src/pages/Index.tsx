@@ -1,14 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import AdminLayout from '../components/layout/AdminLayout';
+import PageHeader from '../components/Dashboard/PageHeader';
+import StatsCardGrid from '../components/Dashboard/StatsCardGrid';
+import ChartsSection from '../components/Dashboard/ChartsSection';
+import BalanceOverview from '../components/Dashboard/BalanceOverview';
+import DealsStatusTable from '../components/Dashboard/DealsStatusTable';
+import TasksList from '../components/Dashboard/TasksList';
 
-const Index = () => {
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <AdminLayout>
+      <div className="flex flex-col gap-6">
+        <PageHeader />
+        <StatsCardGrid />
+        <ChartsSection />
+        <BalanceOverview />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <DealsStatusTable />
+          </div>
+          <div className="lg:col-span-1">
+            <TasksList />
+          </div>
+        </div>
       </div>
-    </div>
+    </AdminLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
